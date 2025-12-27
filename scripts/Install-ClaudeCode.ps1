@@ -1,54 +1,19 @@
-#Requires -Version 5.1
-<#
-.SYNOPSIS
-    Comprehensive Claude Code Installation Script for Windows 11
+# ============================================================================
+# Claude Code Installation Script for Windows 11
+# Author: BANTMS Project | Date: December 2025
+#
+# USAGE (save this file first, then run):
+#   .\Install-ClaudeCode.ps1                    # Install stable (native)
+#   .\Install-ClaudeCode.ps1 -InstallMethod NPM # Install via npm
+#   .\Install-ClaudeCode.ps1 -Version latest    # Install latest version
+#
+# QUICK INSTALL (one-liner, run directly in PowerShell):
+#   irm https://claude.ai/install.ps1 | iex
+# ============================================================================
 
-.DESCRIPTION
-    This script installs the latest version of Claude Code CLI on Windows 11.
-    It supports both the native Windows installation (recommended) and the NPM-based installation.
-
-    As of December 2025, Claude Code supports native Windows installation without requiring
-    WSL (Windows Subsystem for Linux) or Node.js.
-
-.PARAMETER InstallMethod
-    The installation method to use:
-    - Native (default): Uses the official PowerShell installer (recommended)
-    - NPM: Uses npm to install globally (requires Node.js 18+)
-
-.PARAMETER Version
-    The version to install:
-    - stable (default): Latest stable release
-    - latest: Most recent version including pre-releases
-    - Specific version number (e.g., "1.0.58")
-
-.EXAMPLE
-    .\Install-ClaudeCode.ps1
-    Installs the latest stable version using native installer.
-
-.EXAMPLE
-    .\Install-ClaudeCode.ps1 -InstallMethod NPM
-    Installs using npm (requires Node.js).
-
-.EXAMPLE
-    .\Install-ClaudeCode.ps1 -Version latest
-    Installs the latest version (including pre-releases).
-
-.NOTES
-    Author: BANTMS Project
-    Date: December 2025
-    Requirements: Windows 10 20H2+ or Windows 11
-
-.LINK
-    https://code.claude.com/docs/en/setup
-#>
-
-[CmdletBinding()]
 param(
-    [Parameter(Mandatory = $false)]
     [ValidateSet("Native", "NPM")]
     [string]$InstallMethod = "Native",
-
-    [Parameter(Mandatory = $false)]
     [string]$Version = "stable"
 )
 
